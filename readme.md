@@ -58,12 +58,14 @@ TODO
 - returns 
 	transposed note name as a string value.
 
+```javascript
 	console.log( chromatic.transpose( "do", "do" ) ); // "do"
 	console.log( chromatic.transpose( "do", "re" ) ); // "re"
 	console.log( chromatic.transpose( "do", "mi" ) ); // "mi"
 	console.log( chromatic.transpose( "fa", "do" ) ); // "fa"
 	console.log( chromatic.transpose( "fa", "re" ) ); // "sol"
 	console.log( chromatic.transpose( "fa", "mi" ) ); // "la"
+```
 
 ### transposeScript
 
@@ -92,8 +94,11 @@ This function returns an enharmonized note name of the given note.
 - note
 	A note name to enharmonize or an array contains note names to enharmonize.
 
+
+```javascript
 	console.log( c.enharmonize( "raw" ) ); // "do"
 	console.log( c.enharmonize( "de"  ) ); // "ti"
+```
 
 
 ### enharmonize2
@@ -168,36 +173,46 @@ Returns an integer value which denotes a specific note. We call the integer
 numbers as note index. The note indices start from zero. And the number will
 increase one with every half note.
 
+```javascript
 	console.log( c.note2number( "do" ) ); // 0
 	console.log( c.note2number( "re" ) ); // 2
 	console.log( c.note2number( "do'" ) ); // 12
 	console.log( c.note2number( "do," ) ); // -12
+```
 
 
 ### number2note
 Returns a note name of the specified note index.
 
+```javascript
 	console.log( c.number2note( 12 ) );  // do'
 	console.log( c.number2note( -12 ) ); // do,
+```
 
 ### note2alphabet
 Returns an alphabetical note name of the specified note name as unicode string.
 
+```javascript
 	console.log( c.note2alphabet( 'rai' ) ); // d𝄫
 	console.log( c.note2alphabet( 'di' ) );  // c♯
+```
 
 ### note2alphabet_tex
 Returns an alphabetical note name of the specified note name as tex command
 string.
 
+```javascript
 	console.log( c.note2alphabet_tex( 'rai' ) ); // "d \flatflat"
 	console.log( c.note2alphabet_tex( 'di' ) );  // "c \sharp"
+```
 
 
 ### commandInterface
 This function implements a simple commandline interface.
 
+```javascript
 	commandInterface( Array.prototype.slice.call( process.argv, 2) );
+```
 
 ##  Chromatic Solfege Note Specifier Abstraction Layer
 
@@ -213,7 +228,9 @@ The output data is designed to be sent to lilypond afterwards in mind.
 This can transpose multiple notes. Notes should separated by one or more
 spaces.
 
+```javascript
 	console.log( c.transposeScript( "do re  mi" ) ); // "do re mi"
+```
 
 
 
