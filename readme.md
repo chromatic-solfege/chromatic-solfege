@@ -1,46 +1,48 @@
 
-JavaScript Module `chromatic/chromatic.js`
-===========================================
+Chromatic-Solfege for JavaScript
+==================================
 
 ## Overview
-'Chromatic.js' is a Node.js library to operate the notes and the intervals
+A Node modue `chromatic-solfege` is a library to operate the notes and the intervals
 which are defined in Chromatic-Solfege. In this module, it defines all notes of
 Chromatic-Solfege and offers functions to transpose specified note names.
 
 ## Usage
-	var chromatic = require( 'chromatic' );
+	var chromatic = require( 'chromatic-solfege' );
 	var r = chromatic.transpose( "re", "mi" )
 	console.log( r ); // "fi"
 
 ## Methods
-- transpose
-- transposeScript
-- enharmonize
-- enharmonize2
-- isQuadrupleSharp
-- isQuadrupleFlat
-- isQuadrupleAccidental
-- isTripleSharp
-- isTripleFlat
-- isTripleAccidental
-- isDoubleSharp
-- isDoubleFlat
-- isDoubleAccidental
-- isSharp
-- isFlat
-- isNatural
-- isNote
-- isAccidental
-- isIrregularAccidental
-- putTripleAccidentals
-- respell
-- note2number
-- number2note
-- note2alphabet
-- note2alphabet_tex
-- commandInterface
+- [transpose](#transpose)
+- [transposeScript](#transposeScript)
+- [enharmonize](#enharmonize)
+- [enharmonize2](#enharmonize2)
+- [isQuadrupleSharp](#isQuadrupleSharp)
+- [isQuadrupleFlat](#isQuadrupleFlat)
+- [isQuadrupleAccidental](#isQuadrupleAccidental)
+- [isTripleSharp](#isTripleSharp)
+- [isTripleFlat](#isTripleFlat)
+- [isTripleAccidental](#isTripleAccidental)
+- [isDoubleSharp](#isDoubleSharp)
+- [isDoubleFlat](#isDoubleFlat)
+- [isDoubleAccidental](#isDoubleAccidental)
+- [isSharp](#isSharp)
+- [isFlat](#isFlat)
+- [isNatural](#isNatural)
+- [isNote](#isNote)
+- [isAccidental](#isAccidental)
+- [isIrregularAccidental](#isIrregularAccidental)
+- [putTripleAccidentals](#putTripleAccidentals)
+- [respell](#respell)
+- [note2number](#note2number)
+- [number2note](#number2note)
+- [note2alphabet](#note2alphabet)
+- [note2alphabet_tex](#note2alphabet_tex)
+- [commandInterface](#commandInterface)
 
-### transpose( root : string, intervals: string, is_absolute : boolean ) : string
+### transpose
+
+`transpose( root : string, intervals: string, is_absolute : boolean ) : string`
 
 This function transposes a single note.
 
@@ -63,7 +65,9 @@ TODO
 	console.log( chromatic.transpose( "fa", "re" ) ); // "sol"
 	console.log( chromatic.transpose( "fa", "mi" ) ); // "la"
 
-### transposeScript( macro : string, preference : Object )
+### transposeScript
+
+`transposeScript( macro : string, preference : Object )`
 
 This function transposes multiple notes at once. This function takes a string
 text which contains a simple macro language which we call Chromatic Solfege
