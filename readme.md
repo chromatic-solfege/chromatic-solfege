@@ -216,10 +216,10 @@ This function implements a simple commandline interface.
 commandInterface( Array.prototype.slice.call( process.argv, 2) );
 ```
 
-## _Chromall_ Chromatic-Solfege Abstraction Layer Language
+## _Csall_ Chromatic-Solfege Abstraction Layer Language
 
 As mentioned above, the function `transposeScript()` function accepts an 
-argument as a simple macro language which is called _Chromall_. Chromall stands 
+argument as a simple macro language which is called _Csall_. Csall stands 
 for Chromatic-Solfege Abstraction Layer Language. 
 
 The main purpose of this small language is dynamically transposing series of 
@@ -229,7 +229,7 @@ tags.
 Note that the format of its output data is designed to be sent to lilypond 
 afterwards in mind.
 
-### Basic of Chromall
+### Basic of Csall
 
 - A sequence of note specifiers are separated by one or more space characters.  
 - The first note specifier is treated as a key specifier.  
@@ -246,8 +246,8 @@ console.log( c.transposeScript( "re do re mi" ) );  // "re mi fi"
 console.log( c.transposeScript( "fa do re mi" ) );  // "fa sol la"
 ```
 
-- A macro string can contain two or more sequences of note specifiers. Each
-  sequence is preceded by an at-mark '@' .
+- A macro string can contain two or more sequences of note specifiers. In that 
+  case, each sequence should be preceded by an at-mark '@'.
 
 ```javascript
 console.log( c.transposeScript( "@do do re mi" ) );  // "do re mi"
@@ -257,25 +257,30 @@ console.log( c.transposeScript( "@do do re mi" ) );  // "do re mi"
 console.log( c.transposeScript( "@do do re mi @re do re mi" ) );  // "do re mi re mi fi"
 ```
 
+### Special Note Specifiers
+
+- A note specifier which starts with either '#' / '\\'  is ignored and 
+  transparently sent to the output.
 
 ```javascript
-console.log( c.transposeScript( "do re mi" ) ); // "do re mi"
+console.log( c.transposeScript( "@do do re mi #FOO @re do re #BAR mi" ) );  // "do re mi #FOO re mi #BAR fi"
 ```
+
+- A note specifier which is surrounded with '"' (double-quotation) is ignored 
+  and transparently sent to the output.
 
 ```javascript
-console.log( c.transposeScript( 'do re mi "hello!" sol la' ) ); // 'do re mi "hello!" sol la'
+console.log( c.transposeScript( 'do do re mi "hello!" sol la' ) ); // 'do re mi "hello!" sol la'
 ```
-
-### Transparent Literals
 
 These characters are ignored and transparently sent to the output.
 
-- Quoted strings "...."
-- A string which starts with "#"
-- A string which starts with "\\"
-- Any of following string literals.        
-
- `!  = .  ..  = [ ] < > s { } |`
+- Any of these string literals `!  = .  ..  = [ ] < > s { } |` as a note 
+  specifier is ignored and transparently sent to the output.
+ 
+```javascript
+console.log( c.transposeScript( 'do do [ re mi ] { sol la }' ) ); // 'do [ re mi ] { sol la }'
+```
 
 
 ### Chromatic-Solfege Note Name Identifier Specification
