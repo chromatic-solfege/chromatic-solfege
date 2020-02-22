@@ -16,6 +16,7 @@ console.log( r ); // "fi"
 ```
 
 ## Methods
+<div id="chromatic-toc"></div>
 - [transpose](#transpose)
 - [transposeScript](#transposescript)
 - [enharmonize](#enharmonize)
@@ -335,6 +336,9 @@ table is a complete identifier table which includes quater notes.
 ## Multilevel Preference Object
 TODO
 
-<script async src="/tocgen.js" charset="utf-8"></script>
+<script src="/docs/tocgen.js" charset="utf-8"></script>
+<script>
+    registerTOC( "main_content", "chromatic-toc", "chromatic-toc-class" );
+</script>
 
 
