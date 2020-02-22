@@ -8,9 +8,12 @@ which are defined in Chromatic-Solfege. In this module, it defines all notes of
 Chromatic-Solfege and offers functions to transpose specified note names.
 
 ## Usage
+
+```javascript
 	var chromatic = require( 'chromatic-solfege' );
 	var r = chromatic.transpose( "re", "mi" )
 	console.log( r ); // "fi"
+```
 
 ## Methods
 - [transpose](#transpose)
