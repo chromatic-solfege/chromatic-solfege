@@ -339,7 +339,7 @@ TODO
 <script src="/docs/tocgen.js" charset="utf-8"></script>
 <script>
     window.addEventListener( 'load', function() {
-        generateTOC( "#main_content", "chromatic-toc", "chromatic-toc-class" );
+        generateToc( "#main_content", "chromatic-toc", "chromatic-toc-class" );
     });
 </script>
 
