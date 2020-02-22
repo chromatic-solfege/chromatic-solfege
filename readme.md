@@ -74,10 +74,10 @@ TODO
 
 `transposeScript( macro : string, preference : Object )`
 
-This function transposes multiple notes at once. This function takes a string
-text which contains a simple macro language which we call Chromatic Solfege
-Note Specifier Abstraction Layer. See below for the information about the macro
-language.
+This function transposes multiple notes at once. This function accepts an 
+argument as a simple macro language which is called Chromatic-Solfege Abstraction 
+Layer Language. See [Chromatic-Solfege Abstraction Layer Language](#chromaticsolfegeabstractionlayerlanguage) 
+for further information.
 
 - macro
 	Takes a simple macro program.
@@ -88,7 +88,6 @@ language.
 
 - returns
 	an array that contains transposed note names.
-
 
 ### enharmonize
 
@@ -217,23 +216,80 @@ This function implements a simple commandline interface.
 	commandInterface( Array.prototype.slice.call( process.argv, 2) );
 ```
 
-##  Chromatic Solfege Note Specifier Abstraction Layer
+## _Chromall_ Chromatic-Solfege Abstraction Layer Language
 
-The transposeScript() function can parse and execute a simple macro language
-which name is Chromatic Solfege Note Specifier Abstraction Layer. The main
-purpose of this small language is dynamically transposing series of note names.
-This language also accepts some modifiers which can be specified by tags. 
-The output data is designed to be sent to lilypond afterwards in mind.
+As mentioned above, the function `transposeScript()` function accepts an 
+argument as a simple macro language which is called _Chromall_. Chromall stands 
+for Chromatic-Solfege Abstraction Layer Language. 
 
+The main purpose of this small language is dynamically transposing series of 
+note names. This language also accepts some modifiers which can be specified by 
+tags. 
 
-### Basic
+Note that the format of its output data is designed to be sent to lilypond 
+afterwards in mind.
 
-This can transpose multiple notes. Notes should separated by one or more
-spaces.
+### Basic of Chromall
+
+Notes should separated by one or more spaces.
 
 ```javascript
 	console.log( c.transposeScript( "do re  mi" ) ); // "do re mi"
 ```
+
+Notes should separated by one or more spaces.
+
+```javascript
+	console.log( c.transposeScript( "do re mi" ) ); // "do re mi"
+```
+
+
+### Chromatic-Solfege Note Name Identifier Specification
+
+The available note name specifiers are following :
+
+| Origin           |   do   |   re   |   mi   |   fa   |   sol  |   la   |  ti    |
+|------------------|--------|--------|--------|--------|--------|--------|--------|
+| Quadruple Flat   | `daes` | `raes` | `maes` | `faes` | `saes` | `laes` | `taes` |
+| TRIPLE Flat      | `dae`  | `rae`  | `mae`  | `fae`  | `sae`  | `lae`  | `tae`  |
+| DOUBLE Flat      | `daw`  | `raw`  | `maw`  | `faw`  | `saw`  | `law`  | `taw`  |
+| Flat             | `de`   | `ra`   | `me`   | `fe`   | `se`   | `le`   | `te`   |
+| NATURAL          | `do`   | `re`   | `mi`   | `fa`   | `sol`  | `la`   | `ti`   |
+| Sharp            | `di`   | `ri`   | `ma`   | `fi`   | `si`   | `li`   | `ta`   |
+| DOUBLE Sharp     | `dai`  | `rai`  | `mai`  | `fai`  | `sai`  | `lai`  | `tai`  |
+| TRIPLE Sharp     | `dao`  | `rao`  | `mao`  | `fao`  | `sao`  | `lao`  | `tao`  |
+| Quadruple Sharp  | `daos` | `raos` | `maos` | `faos` | `saos` | `laos` | `taos` |
+
+
+In this library, quater sharps and quater flats are also defined. The following 
+table is a complete identifier table which includes quater notes.
+
+| Origin           |   do   |   re   |   mi   |   fa   |   sol  |   la   |  ti    |
+|------------------|--------|--------|--------|--------|--------|--------|--------|
+| Quadruple Flat   | `daes` | `raes` | `maes` | `faes` | `saes` | `laes` | `taes` |
+| 7 Quarter Flat   | `dawm` | `rawm` | `mawm` | `fawm` | `sawm` | `lawm` | `tawm` |
+| TRIPLE Flat      | `dae`  | `rae`  | `mae`  | `fae`  | `sae`  | `lae`  | `tae`  |
+| 5 Quarter Flat   | `dawn` | `rawn` | `mawn` | `fawn` | `sawn` | `lawn` | `tawn` |
+| DOUBLE Flat      | `daw`  | `raw`  | `maw`  | `faw`  | `saw`  | `law`  | `taw`  |
+| 3 Quarter Flat   | `dem`  | `ram`  | `mem`  | `fem`  | `sem`  | `lem`  | `tem`  |
+| Flat             | `de`   | `ra`   | `me`   | `fe`   | `se`   | `le`   | `te`   |
+| 1 Quarter Flat   | `dew`  | `rew`  | `mew`  | `few`  | `sew`  | `lew`  | `tew`  |
+| NATURAL          | `do`   | `re`   | `mi`   | `fa`   | `sol`  | `la`   | `ti`   |
+| 1 Quarter Sharp  | `dia`  | `ria`  | `mia`  | `fia`  | `sia`  | `lia`  | `tia`  |
+| Sharp            | `di`   | `ri`   | `ma`   | `fi`   | `si`   | `li`   | `ta`   |
+| 3 Quarter Sharp  | `dim`  | `rim`  | `mam`  | `fim`  | `sim`  | `lim`  | `tam`  |
+| DOUBLE Sharp     | `dai`  | `rai`  | `mai`  | `fai`  | `sai`  | `lai`  | `tai`  |
+| 5 Quarter Sharp  | `dain` | `rain` | `main` | `fain` | `sain` | `lain` | `tain` |
+| TRIPLE Sharp     | `dao`  | `rao`  | `mao`  | `fao`  | `sao`  | `lao`  | `tao`  |
+| 7 Quarter Sharp  | `daim` | `raim` | `maim` | `faim` | `saim` | `laim` | `taim` |
+| Quadruple Sharp  | `daos` | `raos` | `maos` | `faos` | `saos` | `laos` | `taos` |
+
+
+
+
+### Bar lines
+
+
 
 
 
