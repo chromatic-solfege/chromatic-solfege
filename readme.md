@@ -338,7 +338,9 @@ TODO
 
 <script src="/docs/tocgen.js" charset="utf-8"></script>
 <script>
-    registerTOC( "main_content", "chromatic-toc", "chromatic-toc-class" );
+    window.addEventListener( 'load', function() {
+        generateTOC( "main_content", "chromatic-toc", "chromatic-toc-class" );
+    });
 </script>
 
 
