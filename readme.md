@@ -62,12 +62,12 @@ TODO
 	transposed note name as a string value.
 
 ```javascript
-	console.log( chromatic.transpose( "do", "do" ) ); // "do"
-	console.log( chromatic.transpose( "do", "re" ) ); // "re"
-	console.log( chromatic.transpose( "do", "mi" ) ); // "mi"
-	console.log( chromatic.transpose( "fa", "do" ) ); // "fa"
-	console.log( chromatic.transpose( "fa", "re" ) ); // "sol"
-	console.log( chromatic.transpose( "fa", "mi" ) ); // "la"
+console.log( chromatic.transpose( "do", "do" ) ); // "do"
+console.log( chromatic.transpose( "do", "re" ) ); // "re"
+console.log( chromatic.transpose( "do", "mi" ) ); // "mi"
+console.log( chromatic.transpose( "fa", "do" ) ); // "fa"
+console.log( chromatic.transpose( "fa", "re" ) ); // "sol"
+console.log( chromatic.transpose( "fa", "mi" ) ); // "la"
 ```
 
 ### transposeScript
@@ -231,17 +231,51 @@ afterwards in mind.
 
 ### Basic of Chromall
 
-Notes should separated by one or more spaces.
+- A sequence of note specifiers are separated by one or more space characters.  
+- The first note specifier is treated as a key specifier.  
 
 ```javascript
-console.log( c.transposeScript( "do re  mi" ) ); // "do re mi"
+console.log( c.transposeScript( "do do re mi" ) );  // "do re mi"
 ```
 
-Notes should separated by one or more spaces.
+```javascript
+console.log( c.transposeScript( "re do re mi" ) );  // "re mi fi"
+```
+
+```javascript
+console.log( c.transposeScript( "fa do re mi" ) );  // "fa sol la"
+```
+
+- A macro string can contain two or more sequences of note specifiers. Each
+  sequence is preceded by an at-mark '@' .
+
+```javascript
+console.log( c.transposeScript( "@do do re mi" ) );  // "do re mi"
+```
+
+```javascript
+console.log( c.transposeScript( "@do do re mi @re do re mi" ) );  // "do re mi re mi fi"
+```
+
 
 ```javascript
 console.log( c.transposeScript( "do re mi" ) ); // "do re mi"
 ```
+
+```javascript
+console.log( c.transposeScript( 'do re mi "hello!" sol la' ) ); // 'do re mi "hello!" sol la'
+```
+
+### Transparent Literals
+
+These characters are ignored and transparently sent to the output.
+
+- Quoted strings "...."
+- A string which starts with "#"
+- A string which starts with "\\"
+- Any of following string literals.        
+
+ `!  = .  ..  = [ ] < > s { } |`
 
 
 ### Chromatic-Solfege Note Name Identifier Specification
@@ -250,15 +284,15 @@ The available note name specifiers are following :
 
 | Origin           |    do    |    re    |    mi    |    fa    |    sol   |    la    |    ti    |
 |------------------|----------|----------|----------|----------|----------|----------|----------|
-| Quadruple Flats  |  `daes`  |  `raes`  |  `maes`  |  `faes`  |  `saes`  |  `laes`  |  `taes`  |
-| Triple Flats     |  `dae`   |  `rae`   |  `mae`   |  `fae`   |  `sae`   |  `lae`   |  `tae`   |
-| Double Flats     |  `daw`   |  `raw`   |  `maw`   |  `faw`   |  `saw`   |  `law`   |  `taw`   |
-| Flats            |  `de`    |  `ra`    |  `me`    |  `fe`    |  `se`    |  `le`    |  `te`    |
+| Quadruple-Flat   |  `daes`  |  `raes`  |  `maes`  |  `faes`  |  `saes`  |  `laes`  |  `taes`  |
+| Triple-Flat      |  `dae`   |  `rae`   |  `mae`   |  `fae`   |  `sae`   |  `lae`   |  `tae`   |
+| Double-Flat      |  `daw`   |  `raw`   |  `maw`   |  `faw`   |  `saw`   |  `law`   |  `taw`   |
+| Flat             |  `de`    |  `ra`    |  `me`    |  `fe`    |  `se`    |  `le`    |  `te`    |
 | Natural          |  `do`    |  `re`    |  `mi`    |  `fa`    |  `sol`   |  `la`    |  `ti`    |
-| Sharps           |  `di`    |  `ri`    |  `ma`    |  `fi`    |  `si`    |  `li`    |  `ta`    |
-| Double Sharps    |  `dai`   |  `rai`   |  `mai`   |  `fai`   |  `sai`   |  `lai`   |  `tai`   |
-| Triple Sharps    |  `dao`   |  `rao`   |  `mao`   |  `fao`   |  `sao`   |  `lao`   |  `tao`   |
-| Quadruple Sharps |  `daos`  |  `raos`  |  `maos`  |  `faos`  |  `saos`  |  `laos`  |  `taos`  |
+| Sharp            |  `di`    |  `ri`    |  `ma`    |  `fi`    |  `si`    |  `li`    |  `ta`    |
+| Double-Sharp     |  `dai`   |  `rai`   |  `mai`   |  `fai`   |  `sai`   |  `lai`   |  `tai`   |
+| Triple-Sharp     |  `dao`   |  `rao`   |  `mao`   |  `fao`   |  `sao`   |  `lao`   |  `tao`   |
+| Quadruple-Sharp  |  `daos`  |  `raos`  |  `maos`  |  `faos`  |  `saos`  |  `laos`  |  `taos`  |
 
 
 In this library, quater sharps and quater flats are also defined. The following 
@@ -266,23 +300,23 @@ table is a complete identifier table which includes quater notes.
 
 | Origin           |    do    |    re    |    mi    |    fa    |    sol   |    la    |    ti    |
 |------------------|----------|----------|----------|----------|----------|----------|----------|
-| Quadruple Flats  |  `daes`  |  `raes`  |  `maes`  |  `faes`  |  `saes`  |  `laes`  |  `taes`  |
-| 7 Quarter Flats  |  `dawm`  |  `rawm`  |  `mawm`  |  `fawm`  |  `sawm`  |  `lawm`  |  `tawm`  |
-| Triple Flats     |  `dae`   |  `rae`   |  `mae`   |  `fae`   |  `sae`   |  `lae`   |  `tae`   |
-| 5 Quarter Flats  |  `dawn`  |  `rawn`  |  `mawn`  |  `fawn`  |  `sawn`  |  `lawn`  |  `tawn`  |
-| Double Flats     |  `daw`   |  `raw`   |  `maw`   |  `faw`   |  `saw`   |  `law`   |  `taw`   |
-| 3 Quarter Flats  |  `dem`   |  `ram`   |  `mem`   |  `fem`   |  `sem`   |  `lem`   |  `tem`   |
-| Flats            |  `de`    |  `ra`    |  `me`    |  `fe`    |  `se`    |  `le`    |  `te`    |
-| 1 Quarter Flats  |  `dew`   |  `rew`   |  `mew`   |  `few`   |  `sew`   |  `lew`   |  `tew`   |
+| Quadruple-Flat   |  `daes`  |  `raes`  |  `maes`  |  `faes`  |  `saes`  |  `laes`  |  `taes`  |
+| 7 Quarter-Flat   |  `dawm`  |  `rawm`  |  `mawm`  |  `fawm`  |  `sawm`  |  `lawm`  |  `tawm`  |
+| Triple-Flat      |  `dae`   |  `rae`   |  `mae`   |  `fae`   |  `sae`   |  `lae`   |  `tae`   |
+| 5 Quarter-Flat   |  `dawn`  |  `rawn`  |  `mawn`  |  `fawn`  |  `sawn`  |  `lawn`  |  `tawn`  |
+| Double-Flat      |  `daw`   |  `raw`   |  `maw`   |  `faw`   |  `saw`   |  `law`   |  `taw`   |
+| 3 Quarter-Flat   |  `dem`   |  `ram`   |  `mem`   |  `fem`   |  `sem`   |  `lem`   |  `tem`   |
+| Flat             |  `de`    |  `ra`    |  `me`    |  `fe`    |  `se`    |  `le`    |  `te`    |
+| 1 Quarter-Flat   |  `dew`   |  `rew`   |  `mew`   |  `few`   |  `sew`   |  `lew`   |  `tew`   |
 | Natural          |  `do`    |  `re`    |  `mi`    |  `fa`    |  `sol`   |  `la`    |  `ti`    |
-| 1 Quarter Sharps |  `dia`   |  `ria`   |  `mia`   |  `fia`   |  `sia`   |  `lia`   |  `tia`   |
-| Sharps           |  `di`    |  `ri`    |  `ma`    |  `fi`    |  `si`    |  `li`    |  `ta`    |
-| 3 Quarter Sharps |  `dim`   |  `rim`   |  `mam`   |  `fim`   |  `sim`   |  `lim`   |  `tam`   |
-| Double Sharps    |  `dai`   |  `rai`   |  `mai`   |  `fai`   |  `sai`   |  `lai`   |  `tai`   |
-| 5 Quarter Sharps |  `dain`  |  `rain`  |  `main`  |  `fain`  |  `sain`  |  `lain`  |  `tain`  |
-| Triple Sharps    |  `dao`   |  `rao`   |  `mao`   |  `fao`   |  `sao`   |  `lao`   |  `tao`   |
-| 7 Quarter Sharps |  `daim`  |  `raim`  |  `maim`  |  `faim`  |  `saim`  |  `laim`  |  `taim`  |
-| Quadruple Sharps |  `daos`  |  `raos`  |  `maos`  |  `faos`  |  `saos`  |  `laos`  |  `taos`  |
+| 1 Quarter-Sharp  |  `dia`   |  `ria`   |  `mia`   |  `fia`   |  `sia`   |  `lia`   |  `tia`   |
+| Sharp            |  `di`    |  `ri`    |  `ma`    |  `fi`    |  `si`    |  `li`    |  `ta`    |
+| 3 Quarter-Sharp  |  `dim`   |  `rim`   |  `mam`   |  `fim`   |  `sim`   |  `lim`   |  `tam`   |
+| Double-Sharp     |  `dai`   |  `rai`   |  `mai`   |  `fai`   |  `sai`   |  `lai`   |  `tai`   |
+| 5 Quarter-Sharp  |  `dain`  |  `rain`  |  `main`  |  `fain`  |  `sain`  |  `lain`  |  `tain`  |
+| Triple-Sharp     |  `dao`   |  `rao`   |  `mao`   |  `fao`   |  `sao`   |  `lao`   |  `tao`   |
+| 7 Quarter-Sharp  |  `daim`  |  `raim`  |  `maim`  |  `faim`  |  `saim`  |  `laim`  |  `taim`  |
+| Quadruple-Sharp  |  `daos`  |  `raos`  |  `maos`  |  `faos`  |  `saos`  |  `laos`  |  `taos`  |
 
 
 
