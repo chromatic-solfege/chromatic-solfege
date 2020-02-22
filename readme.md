@@ -98,8 +98,8 @@ This function returns an enharmonized note name of the given note.
 
 
 ```javascript
-	console.log( c.enharmonize( "raw" ) ); // "do"
-	console.log( c.enharmonize( "de"  ) ); // "ti"
+console.log( c.enharmonize( "raw" ) ); // "do"
+console.log( c.enharmonize( "de"  ) ); // "ti"
 ```
 
 
@@ -176,10 +176,10 @@ numbers as note index. The note indices start from zero. And the number will
 increase one with every half note.
 
 ```javascript
-	console.log( c.note2number( "do" ) ); // 0
-	console.log( c.note2number( "re" ) ); // 2
-	console.log( c.note2number( "do'" ) ); // 12
-	console.log( c.note2number( "do," ) ); // -12
+console.log( c.note2number( "do" ) ); // 0
+console.log( c.note2number( "re" ) ); // 2
+console.log( c.note2number( "do'" ) ); // 12
+console.log( c.note2number( "do," ) ); // -12
 ```
 
 
@@ -187,16 +187,16 @@ increase one with every half note.
 Returns a note name of the specified note index.
 
 ```javascript
-	console.log( c.number2note( 12 ) );  // do'
-	console.log( c.number2note( -12 ) ); // do,
+console.log( c.number2note( 12 ) );  // do'
+console.log( c.number2note( -12 ) ); // do,
 ```
 
 ### note2alphabet
 Returns an alphabetical note name of the specified note name as unicode string.
 
 ```javascript
-	console.log( c.note2alphabet( 'rai' ) ); // d𝄫
-	console.log( c.note2alphabet( 'di' ) );  // c♯
+console.log( c.note2alphabet( 'rai' ) ); // d𝄫
+console.log( c.note2alphabet( 'di' ) );  // c♯
 ```
 
 ### note2alphabet_tex
@@ -204,8 +204,8 @@ Returns an alphabetical note name of the specified note name as tex command
 string.
 
 ```javascript
-	console.log( c.note2alphabet_tex( 'rai' ) ); // "d \flatflat"
-	console.log( c.note2alphabet_tex( 'di' ) );  // "c \sharp"
+console.log( c.note2alphabet_tex( 'rai' ) ); // "d \flatflat"
+console.log( c.note2alphabet_tex( 'di' ) );  // "c \sharp"
 ```
 
 
@@ -213,7 +213,7 @@ string.
 This function implements a simple commandline interface.
 
 ```javascript
-	commandInterface( Array.prototype.slice.call( process.argv, 2) );
+commandInterface( Array.prototype.slice.call( process.argv, 2) );
 ```
 
 ## _Chromall_ Chromatic-Solfege Abstraction Layer Language
@@ -234,13 +234,13 @@ afterwards in mind.
 Notes should separated by one or more spaces.
 
 ```javascript
-	console.log( c.transposeScript( "do re  mi" ) ); // "do re mi"
+console.log( c.transposeScript( "do re  mi" ) ); // "do re mi"
 ```
 
 Notes should separated by one or more spaces.
 
 ```javascript
-	console.log( c.transposeScript( "do re mi" ) ); // "do re mi"
+console.log( c.transposeScript( "do re mi" ) ); // "do re mi"
 ```
 
 
@@ -248,41 +248,41 @@ Notes should separated by one or more spaces.
 
 The available note name specifiers are following :
 
-| Origin           |   do   |   re   |   mi   |   fa   |   sol  |   la   |  ti    |
-|------------------|--------|--------|--------|--------|--------|--------|--------|
-| Quadruple Flat   | `daes` | `raes` | `maes` | `faes` | `saes` | `laes` | `taes` |
-| TRIPLE Flat      | `dae`  | `rae`  | `mae`  | `fae`  | `sae`  | `lae`  | `tae`  |
-| DOUBLE Flat      | `daw`  | `raw`  | `maw`  | `faw`  | `saw`  | `law`  | `taw`  |
-| Flat             | `de`   | `ra`   | `me`   | `fe`   | `se`   | `le`   | `te`   |
-| NATURAL          | `do`   | `re`   | `mi`   | `fa`   | `sol`  | `la`   | `ti`   |
-| Sharp            | `di`   | `ri`   | `ma`   | `fi`   | `si`   | `li`   | `ta`   |
-| DOUBLE Sharp     | `dai`  | `rai`  | `mai`  | `fai`  | `sai`  | `lai`  | `tai`  |
-| TRIPLE Sharp     | `dao`  | `rao`  | `mao`  | `fao`  | `sao`  | `lao`  | `tao`  |
-| Quadruple Sharp  | `daos` | `raos` | `maos` | `faos` | `saos` | `laos` | `taos` |
+| Origin           |    do    |    re    |    mi    |    fa    |    sol   |    la    |    ti    |
+|------------------|----------|----------|----------|----------|----------|----------|----------|
+| Quadruple Flat   | **daes** | **raes** | **maes** | **faes** | **saes** | **laes** | **taes** |
+| Triple Flat      | **dae**  | **rae**  | **mae**  | **fae**  | **sae**  | **lae**  | **tae**  |
+| Double Flat      | **daw**  | **raw**  | **maw**  | **faw**  | **saw**  | **law**  | **taw**  |
+| Flat             | **de**   | **ra**   | **me**   | **fe**   | **se**   | **le**   | **te**   |
+| NATURAL          | **do**   | **re**   | **mi**   | **fa**   | **sol**  | **la**   | **ti**   |
+| Sharp            | **di**   | **ri**   | **ma**   | **fi**   | **si**   | **li**   | **ta**   |
+| Double Sharp     | **dai**  | **rai**  | **mai**  | **fai**  | **sai**  | **lai**  | **tai**  |
+| Triple Sharp     | **dao**  | **rao**  | **mao**  | **fao**  | **sao**  | **lao**  | **tao**  |
+| Quadruple Sharp  | **daos** | **raos** | **maos** | **faos** | **saos** | **laos** | **taos** |
 
 
 In this library, quater sharps and quater flats are also defined. The following 
 table is a complete identifier table which includes quater notes.
 
-| Origin           |   do   |   re   |   mi   |   fa   |   sol  |   la   |  ti    |
-|------------------|--------|--------|--------|--------|--------|--------|--------|
-| Quadruple Flat   | `daes` | `raes` | `maes` | `faes` | `saes` | `laes` | `taes` |
-| 7 Quarter Flat   | `dawm` | `rawm` | `mawm` | `fawm` | `sawm` | `lawm` | `tawm` |
-| TRIPLE Flat      | `dae`  | `rae`  | `mae`  | `fae`  | `sae`  | `lae`  | `tae`  |
-| 5 Quarter Flat   | `dawn` | `rawn` | `mawn` | `fawn` | `sawn` | `lawn` | `tawn` |
-| DOUBLE Flat      | `daw`  | `raw`  | `maw`  | `faw`  | `saw`  | `law`  | `taw`  |
-| 3 Quarter Flat   | `dem`  | `ram`  | `mem`  | `fem`  | `sem`  | `lem`  | `tem`  |
-| Flat             | `de`   | `ra`   | `me`   | `fe`   | `se`   | `le`   | `te`   |
-| 1 Quarter Flat   | `dew`  | `rew`  | `mew`  | `few`  | `sew`  | `lew`  | `tew`  |
-| NATURAL          | `do`   | `re`   | `mi`   | `fa`   | `sol`  | `la`   | `ti`   |
-| 1 Quarter Sharp  | `dia`  | `ria`  | `mia`  | `fia`  | `sia`  | `lia`  | `tia`  |
-| Sharp            | `di`   | `ri`   | `ma`   | `fi`   | `si`   | `li`   | `ta`   |
-| 3 Quarter Sharp  | `dim`  | `rim`  | `mam`  | `fim`  | `sim`  | `lim`  | `tam`  |
-| DOUBLE Sharp     | `dai`  | `rai`  | `mai`  | `fai`  | `sai`  | `lai`  | `tai`  |
-| 5 Quarter Sharp  | `dain` | `rain` | `main` | `fain` | `sain` | `lain` | `tain` |
-| TRIPLE Sharp     | `dao`  | `rao`  | `mao`  | `fao`  | `sao`  | `lao`  | `tao`  |
-| 7 Quarter Sharp  | `daim` | `raim` | `maim` | `faim` | `saim` | `laim` | `taim` |
-| Quadruple Sharp  | `daos` | `raos` | `maos` | `faos` | `saos` | `laos` | `taos` |
+| Origin           |    do    |    re    |    mi    |    fa    |    sol   |    la    |    ti    |
+|------------------|----------|----------|----------|----------|----------|----------|----------|
+| Quadruple Flat   | **daes** | **raes** | **maes** | **faes** | **saes** | **laes** | **taes** |
+| 7 Quarter Flat   | **dawm** | **rawm** | **mawm** | **fawm** | **sawm** | **lawm** | **tawm** |
+| Triple Flat      | **dae**  | **rae**  | **mae**  | **fae**  | **sae**  | **lae**  | **tae**  |
+| 5 Quarter Flat   | **dawn** | **rawn** | **mawn** | **fawn** | **sawn** | **lawn** | **tawn** |
+| Double Flat      | **daw**  | **raw**  | **maw**  | **faw**  | **saw**  | **law**  | **taw**  |
+| 3 Quarter Flat   | **dem**  | **ram**  | **mem**  | **fem**  | **sem**  | **lem**  | **tem**  |
+| Flat             | **de**   | **ra**   | **me**   | **fe**   | **se**   | **le**   | **te**   |
+| 1 Quarter Flat   | **dew**  | **rew**  | **mew**  | **few**  | **sew**  | **lew**  | **tew**  |
+| NATURAL          | **do**   | **re**   | **mi**   | **fa**   | **sol**  | **la**   | **ti**   |
+| 1 Quarter Sharp  | **dia**  | **ria**  | **mia**  | **fia**  | **sia**  | **lia**  | **tia**  |
+| Sharp            | **di**   | **ri**   | **ma**   | **fi**   | **si**   | **li**   | **ta**   |
+| 3 Quarter Sharp  | **dim**  | **rim**  | **mam**  | **fim**  | **sim**  | **lim**  | **tam**  |
+| Double Sharp     | **dai**  | **rai**  | **mai**  | **fai**  | **sai**  | **lai**  | **tai**  |
+| 5 Quarter Sharp  | **dain** | **rain** | **main** | **fain** | **sain** | **lain** | **tain** |
+| Triple Sharp     | **dao**  | **rao**  | **mao**  | **fao**  | **sao**  | **lao**  | **tao**  |
+| 7 Quarter Sharp  | **daim** | **raim** | **maim** | **faim** | **saim** | **laim** | **taim** |
+| Quadruple Sharp  | **daos** | **raos** | **maos** | **faos** | **saos** | **laos** | **taos** |
 
 
 
