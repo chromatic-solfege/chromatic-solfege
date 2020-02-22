@@ -76,7 +76,7 @@ console.log( chromatic.transpose( "fa", "mi" ) ); // "la"
 
 This function transposes multiple notes at once. This function accepts an 
 argument as a simple macro language which is called Chromatic-Solfege Abstraction 
-Layer Language. See [Chromatic-Solfege Abstraction Layer Language](#chromaticsolfegeabstractionlayerlanguage) 
+Layer Language. See [Chromatic-Solfege Abstraction Layer Language](#chromatic-solfege-abstraction-layer-language) 
 for further information.
 
 - macro
