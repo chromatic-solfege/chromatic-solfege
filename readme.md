@@ -216,7 +216,9 @@ This function implements a simple commandline interface.
 commandInterface( Array.prototype.slice.call( process.argv, 2) );
 ```
 
-## _Csall_ Chromatic-Solfege Abstraction Layer Language
+## Chromatic-Solfege Abstraction Layer Language
+
+### Syntax of _Csall_ 
 
 As mentioned above, the function `transposeScript()` function accepts an 
 argument as a simple macro language which is called _Csall_. Csall stands 
