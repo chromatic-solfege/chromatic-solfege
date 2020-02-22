@@ -335,6 +335,6 @@ table is a complete identifier table which includes quater notes.
 ## Multilevel Preference Object
 TODO
 
-<script async src="//tocgen.js" charset="utf-8"></script>
+<script async src="/tocgen.js" charset="utf-8"></script>
 
 
