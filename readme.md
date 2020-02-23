@@ -259,9 +259,88 @@ console.log( c.transposeScript( "@do do re mi" ) );  // "do re mi"
 console.log( c.transposeScript( "@do do re mi @re do re mi" ) );  // "do re mi re mi fi"
 ```
 
+### Octave Specifiers
+`'` and `,` are octave specifiers. It is transparently passed to the output. It 
+should come right after the note name.
+
+```javascript
+console.log( c.transposeScript( "@do do, re, mi," ) );  // "do, re, mi' 
+```
+
+### Note Value Specifiers
+Any of `0 1 2 3 4 5 6 7 8 9 0` are note value specifiers. It is transparently 
+passed to the output. It should come after the note name. In case there are any 
+octave specifier after the note name, the note value specifiers should come 
+after the octave specifier.
+
+
+### Mode Specifiers
+You can put any number of mode specifiers before the all note sequence.
+
+- `\\har`
+- `\\enh`
+- `\\rel` 
+- `\\abs`
+
+#### \\enh
+When `\\enh` is specified, every note in the output is converted to the note 
+which is enharmonically equivalent to the note. 
+
+_Currently this directive is not working correctly. This will be fixed in near 
+future. Every application should not use this directive until it is properly fixed._
+
+```javascript
+console.log( c.transposeScript( "\\enh @do raw maw faw" ) );  // " do re me"
+```
+
+#### \\har
+This is default 
+
+```javascript
+console.log( c.transposeScript( "\\har @do raw maw faw" ) );  // "raw maw faw"
+```
+
+```javascript
+// This returns same " raw maw faw" since \\har is default.
+console.log( c.transposeScript( "@do raw maw faw" ) );  
+```
+
+#### \\rel 
+It output notes with relative octave specifier.  \\rel is default.  **TODO**
+ 
+```javascript
+console.log( c.transposeScript( "\\rel @do, do, re, mi,) );  // "do, re, mi,"
+```
+
+_Currently this directive is under the beta state and not working correctly. 
+This will be fixed in near future. Every application should not use this 
+directive until it is properly fixed._
+
+#### \\abs
+It output notes with absolute octave specifier. **TODO**
+
+```javascript
+console.log( c.transposeScript( "\\abs @do, do, re, mi,) );  // "do,, re,, mi,,"
+```
+
+_Currently this directive is under the beta state and not working correctly. 
+This will be fixed in near future. Every application should not use this 
+directive until it is properly fixed._
+
+
 ### Special Note Specifiers
 
-- A note specifier which starts with either '#' / '\\'  is ignored and 
+#### The Rest Note Specifier
+
+`s` is used as a rest note. In this module, it is treated as a special note.
+
+```javascript
+console.log( c.transposeScript( "@do do4 re8 mi8 s4" ) );  // "do4 re8 mi8 s4"
+```
+
+#### Transparent Note Specifiers
+
+- A note specifier which starts with either `#` `\\` is ignored and 
   transparently sent to the output.
 
 ```javascript
@@ -283,6 +362,8 @@ These characters are ignored and transparently sent to the output.
 ```javascript
 console.log( c.transposeScript( 'do do [ re mi ] { sol la }' ) ); // 'do [ re mi ] { sol la }'
 ```
+
+These characters are used to pass command sequences to Lilypond after the processing.
 
 
 ### Chromatic-Solfege Note Name Identifier Specification
