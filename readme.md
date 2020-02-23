@@ -2,12 +2,12 @@
 Chromatic-Solfege for JavaScript
 ==================================
 
-## Overview
+# Overview
 A Node modue `chromatic-solfege` is a library to operate the notes and the intervals
 which are defined in Chromatic-Solfege. In this module, it defines all notes of
 Chromatic-Solfege and offers functions to transpose specified note names.
 
-## Usage
+# Usage
 
 ```javascript
 var chromatic = require( 'chromatic-solfege' );
@@ -15,7 +15,7 @@ var r = chromatic.transpose( "re", "mi" )
 console.log( r ); // "fi"
 ```
 
-## Methods
+# Methods
 - [transpose](#transpose)
 - [transposeScript](#transposescript)
 - [enharmonize](#enharmonize)
@@ -209,16 +209,16 @@ console.log( c.note2alphabet_tex( 'di' ) );  // "c \sharp"
 ```
 
 
-### commandInterface
+## commandInterface
 This function implements a simple commandline interface.
 
 ```javascript
 commandInterface( Array.prototype.slice.call( process.argv, 2) );
 ```
 
-## Chromatic-Solfege Abstraction Layer Language
+# Chromatic-Solfege Abstraction Layer Language
 
-### Syntax of _Csall_ 
+## Syntax of _Csall_ 
 
 As mentioned above, the function `transposeScript()` function accepts an 
 argument as a simple macro language which is called _Csall_. Csall stands 
@@ -231,7 +231,7 @@ tags.
 Note that the format of its output data is designed to be sent to lilypond 
 afterwards in mind.
 
-### Basic of Csall
+## Basic of Csall
 
 - A sequence of note specifiers are separated by one or more space characters.  
 - The first note specifier is treated as a key specifier.  
@@ -259,7 +259,7 @@ console.log( c.transposeScript( "@do do re mi" ) );  // "do re mi"
 console.log( c.transposeScript( "@do do re mi @re do re mi" ) );  // "do re mi re mi fi"
 ```
 
-### Octave Specifiers
+## Octave Specifiers
 `'` and `,` are octave specifiers. It is transparently passed to the output. It 
 should come right after the note name.
 
@@ -267,14 +267,14 @@ should come right after the note name.
 console.log( c.transposeScript( "@do do, re, mi," ) );  // "do, re, mi' 
 ```
 
-### Note Value Specifiers
+## Note Value Specifiers
 Any of `0 1 2 3 4 5 6 7 8 9 0` are note value specifiers. It is transparently 
 passed to the output. It should come after the note name. In case there are any 
 octave specifier after the note name, the note value specifiers should come 
 after the octave specifier.
 
 
-### Mode Specifiers
+## Mode Specifiers
 You can put any number of mode specifiers before the all note sequence.
 
 - `\har`
@@ -282,7 +282,7 @@ You can put any number of mode specifiers before the all note sequence.
 - `\rel` 
 - `\abs`
 
-#### \\enh
+### \\enh
 When `\enh` is specified, every note in the output is converted to the 
 enharmonically equivalent note.
 
@@ -293,7 +293,7 @@ future. Every application should not use this directive until it is properly fix
 console.log( c.transposeScript( "\\enh @do raw maw faw" ) );  // " do re me"
 ```
 
-#### \\har
+### \\har
 This is default 
 
 ```javascript
@@ -305,7 +305,7 @@ console.log( c.transposeScript( "\\har @do raw maw faw" ) );  // "raw maw faw"
 console.log( c.transposeScript( "@do raw maw faw" ) );  
 ```
 
-#### \\rel 
+### \\rel 
 It output notes with relative octave specifier.  \\rel is default.  **TODO**
  
 ```javascript
@@ -316,7 +316,7 @@ _Currently this directive is under the beta state and not working correctly.
 This will be fixed in near future. Every application should not use this 
 directive until it is properly fixed._
 
-#### \\abs
+### \\abs
 It output notes with absolute octave specifier. **TODO**
 
 ```javascript
@@ -328,9 +328,9 @@ This will be fixed in near future. Every application should not use this
 directive until it is properly fixed._
 
 
-### Special Note Specifiers
+## Special Note Specifiers
 
-#### The Rest Note Specifier
+### The Rest Note Specifier
 
 `s` is used as a rest note. In this module, it is treated as a special note.
 
@@ -338,7 +338,7 @@ directive until it is properly fixed._
 console.log( c.transposeScript( "@do do4 re8 mi8 s4" ) );  // "do4 re8 mi8 s4"
 ```
 
-#### Transparent Note Specifiers
+### Transparent Note Specifiers
 
 - A note specifier which starts with either `#` `\\` is ignored and 
   transparently sent to the output.
@@ -366,7 +366,7 @@ console.log( c.transposeScript( 'do do [ re mi ] { sol la }' ) ); // 'do [ re mi
 These characters are used to pass command sequences to Lilypond after the processing.
 
 
-### Chromatic-Solfege Note Name Identifier Specification
+## Chromatic-Solfege Note Name Identifier Specification
 
 The available note name specifiers are following :
 
