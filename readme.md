@@ -277,14 +277,14 @@ after the octave specifier.
 ### Mode Specifiers
 You can put any number of mode specifiers before the all note sequence.
 
-- `\\har`
-- `\\enh`
-- `\\rel` 
-- `\\abs`
+- `\har`
+- `\enh`
+- `\rel` 
+- `\abs`
 
 #### \\enh
-When `\\enh` is specified, every note in the output is converted to the note 
-which is enharmonically equivalent to the note. 
+When `\enh` is specified, every note in the output is converted to the 
+enharmonically equivalent note.
 
 _Currently this directive is not working correctly. This will be fixed in near 
 future. Every application should not use this directive until it is properly fixed._
@@ -408,13 +408,9 @@ table is a complete identifier table which includes quater notes.
 
 
 
-### Bar lines
 
 
 
 
 
-
-## Multilevel Preference Object
-TODO
 
