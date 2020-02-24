@@ -116,51 +116,51 @@ backward compatibility and new applications should not use this function.
 	Specifies the algorithm of convertion. 
 	This should be one of following strings: 'ds', 's', 'n', 'f', 'df'.
 
+### Predicates
 
-### isQuadrupleSharp( note )
+**isQuadrupleSharp**
 Returns true if the specified value is a quadruple sharp.
 
-### isQuadrupleFlat( note )
+**isQuadrupleFlat**
 Returns true if the specified value is a quadruple flat.
 
-### isQuadrupleAccidental( note )
+**isQuadrupleAccidental**
 Returns true if the specified value is with a quadruple accidental.
 
-### isTripleSharp( note )
+**isTripleSharp**
 Returns true if the specified value is with a triple sharp.
 
-### isTripleFlat( note )
+**isTripleFlat**
 Returns true if the specified value is with a triple flat.
 
-### isTripleAccidental( note )
+**isTripleAccidental**
 Returns true if the specified value is with a triple accidental.
 
-
-### isDoubleSharp( note )
+**isDoubleSharp**
 Returns true if the specified value is with a double sharp.
 
-### isDoubleFlat( note )
+**isDoubleFlat**
 Returns true if the specified value is with a double flat.
 
-### isDoubleAccidental( note )
+**isDoubleAccidental**
 Returns true if the specified value is with a double accidental.
 
-### isSharp( note )
+**isSharp**
 Returns true if the specified value is with a sharp.
 
-### isFlat( note )
+**isFlat**
 Returns true if the specified value is with a flat.
 
-### isAccidental( note )
+**isAccidental**
 Returns true if the specified value is with an accidental.
 
-### isNatural( note )
+**isNatural**
 Returns true if the specified value is natural and without any accidentals.
 
-### isNote( note )
+**isNote**
 Returns true if the specified value is a note name.
 
-### isIrregularAccidental( note )
+**isIrregularAccidental**
 Returns true if the specified value is one of 'de', 'ta' , 'ma', 'fe'.
 
 ### putTripleAccidentals
