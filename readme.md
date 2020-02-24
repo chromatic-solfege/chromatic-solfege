@@ -389,8 +389,5 @@ table is a complete identifier table which includes quater notes.
 
 
 <style>
-section {
-width : 800px;
-}
 </style>
 
