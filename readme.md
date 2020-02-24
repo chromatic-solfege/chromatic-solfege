@@ -265,8 +265,8 @@ Currently, there are four types of mode specifiers.
 - `\abs`
 
 __\\enh__
-When `\enh` is specified, every note in the output is converted to the 
-enharmonically equivalent note.
+When `\enh` is specified, every note specifier in the output is converted to 
+its enharmonically equivalent note.
 
 _Currently this directive is not working correctly. This will be fixed in near 
 future. Every application should not use this directive until it is properly fixed._
@@ -276,7 +276,7 @@ console.log( c.transposeScript( "\\enh @do raw maw faw" ) );  // " do re me"
 ```
 
 __\\har__
-This is default 
+The input note specifiers are not converted. This is the default mode.
 
 ```javascript
 console.log( c.transposeScript( "\\har @do raw maw faw" ) );  // "raw maw faw"
