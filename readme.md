@@ -74,7 +74,7 @@ console.log( c.enharmonize( "raw" ) ); // "do"
 console.log( c.enharmonize( "de"  ) ); // "ti"
 ```
 
-__enharmonize2__
+__enharmonize2(note)__
 
 This function returns an enharmonic note name of the given note. The note will
 be selected by an internally defined priority. This function is left for
@@ -87,21 +87,21 @@ backward compatibility and new applications should not use this function.
 	This should be one of following strings: 'ds', 's', 'n', 'f', 'df'.
 
 
-__putTripleAccidentals__
+__putTripleAccidentals(note)__
 
 This is a lilypond helper function. This function puts a triple accidental tag
 before the note name if the specified is with a triple accidental.
 
 
-__respell__
+__respell(note)__
 
 This function converts note names with flat into sharp and vice a versa.
 
 
-__note2number__
+__note2number(note)__ 
 
-Returns an integer value which denotes a specific note. We call the integer
-numbers as note index. The note indices start from zero. And the number will
+Returns an integer value which denotes a specific note.  We call the integer 
+numbers as note index. The note indices start from zero.  And the number will 
 increase one with every half note.
 
 
@@ -112,7 +112,7 @@ console.log( c.note2number( "do'" ) ); // 12
 console.log( c.note2number( "do," ) ); // -12
 ```
 
-__number2note__
+__number2note(note)__
 
 Returns a note name of the specified note index.
 
@@ -122,7 +122,7 @@ console.log( c.number2note( 12 ) );  // do'
 console.log( c.number2note( -12 ) ); // do,
 ```
 
-__note2alphabet__
+__note2alphabet(note)__
 
 Returns an alphabetical note name of the specified note name as unicode string.
 
@@ -131,7 +131,7 @@ console.log( c.note2alphabet( 'rai' ) ); // d𝄫
 console.log( c.note2alphabet( 'di' ) );  // c♯
 ```
 
-__note2alphabet_tex__
+__note2alphabet_tex(note)__
 
 Returns an alphabetical note name of the specified note name as tex command
 string.
