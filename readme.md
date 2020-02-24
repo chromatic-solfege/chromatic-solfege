@@ -15,6 +15,13 @@ var r = chromatic.transpose( "re", "mi" )
 console.log( r ); // "fi"
 ```
 
+If you want to try following example, you could do it in your terminal  as 
+following:
+
+```bash
+> nodejs -e 'console.log( require("chromatic-solfege").transposeScript( "\\enh @do raw maw faw" ) )' 
+```
+
 # Methods
 ## Converters
 __transpose( root : string, intervals: string, is_absolute : boolean ) : string__
@@ -112,7 +119,7 @@ console.log( c.number2note( 12 ) );  // do'
 console.log( c.number2note( -12 ) ); // do,
 ```
 
-### note2alphabet
+__note2alphabet__
 Returns an alphabetical note name of the specified note name as unicode string.
 
 ```javascript
@@ -120,7 +127,7 @@ console.log( c.note2alphabet( 'rai' ) ); // d𝄫
 console.log( c.note2alphabet( 'di' ) );  // c♯
 ```
 
-### note2alphabet_tex
+__note2alphabet_tex__
 Returns an alphabetical note name of the specified note name as tex command
 string.
 
@@ -249,7 +256,7 @@ You can put any number of mode specifiers before the all note sequence.
 - `\rel` 
 - `\abs`
 
-### \\enh
+__\\enh__
 When `\enh` is specified, every note in the output is converted to the 
 enharmonically equivalent note.
 
@@ -260,7 +267,7 @@ future. Every application should not use this directive until it is properly fix
 console.log( c.transposeScript( "\\enh @do raw maw faw" ) );  // " do re me"
 ```
 
-### \\har
+__\\har__
 This is default 
 
 ```javascript
@@ -272,7 +279,7 @@ console.log( c.transposeScript( "\\har @do raw maw faw" ) );  // "raw maw faw"
 console.log( c.transposeScript( "@do raw maw faw" ) );  
 ```
 
-### \\rel 
+__\\rel__
 It output notes with relative octave specifier.  \\rel is default.  **TODO**
  
 ```javascript
@@ -283,7 +290,7 @@ _Currently this directive is under the beta state and not working correctly.
 This will be fixed in near future. Every application should not use this 
 directive until it is properly fixed._
 
-### \\abs
+__\\abs__
 It output notes with absolute octave specifier. **TODO**
 
 ```javascript
