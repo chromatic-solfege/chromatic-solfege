@@ -17,7 +17,7 @@ console.log( r ); // "fi"
 
 # Methods
 ## Converters
-### transpose( root : string, intervals: string, is_absolute : boolean ) : string
+__transpose( root : string, intervals: string, is_absolute : boolean ) : string__
 `transpose( root : string, intervals: string, is_absolute : boolean ) : string`
 
 This function transposes a single note.
@@ -43,7 +43,7 @@ console.log( chromatic.transpose( "fa", "re" ) ); // "sol"
 console.log( chromatic.transpose( "fa", "mi" ) ); // "la"
 ```
 
-### transposeScript( macro : string, preference : Object )
+__transposeScript( macro : string, preference : Object )__
 `transposeScript( macro : string, preference : Object )`
 
 This function transposes multiple notes at once. This function accepts an 
@@ -61,7 +61,7 @@ for further information.
 - returns
 	an array that contains transposed note names.
 
-### enharmonize
+__enharmonize__
 This function returns an enharmonized note name of the given note.
 
 - note
@@ -73,8 +73,7 @@ console.log( c.enharmonize( "raw" ) ); // "do"
 console.log( c.enharmonize( "de"  ) ); // "ti"
 ```
 
-
-### enharmonize2
+__enharmonize2__
 This function returns an enharmonic note name of the given note. The note will
 be selected by an internally defined priority. This function is left for
 backward compatibility and new applications should not use this function.
@@ -86,14 +85,14 @@ backward compatibility and new applications should not use this function.
 	Specifies the algorithm of convertion. 
 	This should be one of following strings: 'ds', 's', 'n', 'f', 'df'.
 
-### putTripleAccidentals
+__putTripleAccidentals__
 This is a lilypond helper function. This function puts a triple accidental tag
 before the note name if the specified is with a triple accidental.
 
-### respell
+__respell__
 This function converts note names with flat into sharp and vice a versa.
 
-### note2number
+__note2number__
 Returns an integer value which denotes a specific note. We call the integer
 numbers as note index. The note indices start from zero. And the number will
 increase one with every half note.
@@ -105,8 +104,7 @@ console.log( c.note2number( "do'" ) ); // 12
 console.log( c.note2number( "do," ) ); // -12
 ```
 
-
-### number2note
+__number2note__
 Returns a note name of the specified note index.
 
 ```javascript
@@ -133,49 +131,49 @@ console.log( c.note2alphabet_tex( 'di' ) );  // "c \sharp"
 
 ### Predicates
 
-**isQuadrupleSharp**
+__isQuadrupleSharp__
 Returns true if the specified value is a quadruple sharp.
 
-**isQuadrupleFlat**
+__isQuadrupleFlat__
 Returns true if the specified value is a quadruple flat.
 
-**isQuadrupleAccidental**
+__isQuadrupleAccidental__
 Returns true if the specified value is with a quadruple accidental.
 
-**isTripleSharp**
+__isTripleSharp__
 Returns true if the specified value is with a triple sharp.
 
-**isTripleFlat**
+__isTripleFlat__
 Returns true if the specified value is with a triple flat.
 
-**isTripleAccidental**
+__isTripleAccidental__
 Returns true if the specified value is with a triple accidental.
 
-**isDoubleSharp**
+__isDoubleSharp__
 Returns true if the specified value is with a double sharp.
 
-**isDoubleFlat**
+__isDoubleFlat__
 Returns true if the specified value is with a double flat.
 
-**isDoubleAccidental**
+__isDoubleAccidental__
 Returns true if the specified value is with a double accidental.
 
-**isSharp**
+__isSharp__
 Returns true if the specified value is with a sharp.
 
-**isFlat**
+__isFlat__
 Returns true if the specified value is with a flat.
 
-**isAccidental**
+__isAccidental__
 Returns true if the specified value is with an accidental.
 
-**isNatural**
+__isNatural__
 Returns true if the specified value is natural and without any accidentals.
 
-**isNote**
+__isNote__
 Returns true if the specified value is a note name.
 
-**isIrregularAccidental**
+__isIrregularAccidental__
 Returns true if the specified value is one of 'de', 'ta' , 'ma', 'fe'.
 
 ## Command Interface
