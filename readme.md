@@ -351,15 +351,15 @@ The available note name specifiers are following :
 
 | Origin           |    do    |    re    |    mi    |    fa    |    sol   |    la    |    ti    |
 |------------------|----------|----------|----------|----------|----------|----------|----------|
-| Quadruple-Flat   |  `daes`  |  `raes`  |  `maes`  |  `faes`  |  `saes`  |  `laes`  |  `taes`  |
-| Triple-Flat      |  `dae`   |  `rae`   |  `mae`   |  `fae`   |  `sae`   |  `lae`   |  `tae`   |
-| Double-Flat      |  `daw`   |  `raw`   |  `maw`   |  `faw`   |  `saw`   |  `law`   |  `taw`   |
-| Flat             |  `de`    |  `ra`    |  `me`    |  `fe`    |  `se`    |  `le`    |  `te`    |
-| Natural          |  `do`    |  `re`    |  `mi`    |  `fa`    |  `sol`   |  `la`    |  `ti`    |
-| Sharp            |  `di`    |  `ri`    |  `ma`    |  `fi`    |  `si`    |  `li`    |  `ta`    |
-| Double-Sharp     |  `dai`   |  `rai`   |  `mai`   |  `fai`   |  `sai`   |  `lai`   |  `tai`   |
-| Triple-Sharp     |  `dao`   |  `rao`   |  `mao`   |  `fao`   |  `sao`   |  `lao`   |  `tao`   |
-| Quadruple-Sharp  |  `daos`  |  `raos`  |  `maos`  |  `faos`  |  `saos`  |  `laos`  |  `taos`  |
+| Quadruple-Flat   |   daes   |   raes   |   maes   |   faes   |   saes   |   laes   |   taes   |
+| Triple-Flat      |   dae    |   rae    |   mae    |   fae    |   sae    |   lae    |   tae    |
+| Double-Flat      |   daw    |   raw    |   maw    |   faw    |   saw    |   law    |   taw    |
+| Flat             |   de     |   ra     |   me     |   fe     |   se     |   le     |   te     |
+| Natural          |   do     |   re     |   mi     |   fa     |   sol    |   la     |   ti     |
+| Sharp            |   di     |   ri     |   ma     |   fi     |   si     |   li     |   ta     |
+| Double-Sharp     |   dai    |   rai    |   mai    |   fai    |   sai    |   lai    |   tai    |
+| Triple-Sharp     |   dao    |   rao    |   mao    |   fao    |   sao    |   lao    |   tao    |
+| Quadruple-Sharp  |   daos   |   raos   |   maos   |   faos   |   saos   |   laos   |   taos   |
 
 
 In this library, quater sharps and quater flats are also defined. The following 
@@ -367,23 +367,23 @@ table is a complete identifier table which includes quater notes.
 
 | Origin           |    do    |    re    |    mi    |    fa    |    sol   |    la    |    ti    |
 |------------------|----------|----------|----------|----------|----------|----------|----------|
-| Quadruple-Flat   |  `daes`  |  `raes`  |  `maes`  |  `faes`  |  `saes`  |  `laes`  |  `taes`  |
-| 7 Quarter-Flat   |  `dawm`  |  `rawm`  |  `mawm`  |  `fawm`  |  `sawm`  |  `lawm`  |  `tawm`  |
-| Triple-Flat      |  `dae`   |  `rae`   |  `mae`   |  `fae`   |  `sae`   |  `lae`   |  `tae`   |
-| 5 Quarter-Flat   |  `dawn`  |  `rawn`  |  `mawn`  |  `fawn`  |  `sawn`  |  `lawn`  |  `tawn`  |
-| Double-Flat      |  `daw`   |  `raw`   |  `maw`   |  `faw`   |  `saw`   |  `law`   |  `taw`   |
-| 3 Quarter-Flat   |  `dem`   |  `ram`   |  `mem`   |  `fem`   |  `sem`   |  `lem`   |  `tem`   |
-| Flat             |  `de`    |  `ra`    |  `me`    |  `fe`    |  `se`    |  `le`    |  `te`    |
-| 1 Quarter-Flat   |  `dew`   |  `rew`   |  `mew`   |  `few`   |  `sew`   |  `lew`   |  `tew`   |
-| Natural          |  `do`    |  `re`    |  `mi`    |  `fa`    |  `sol`   |  `la`    |  `ti`    |
-| 1 Quarter-Sharp  |  `dia`   |  `ria`   |  `mia`   |  `fia`   |  `sia`   |  `lia`   |  `tia`   |
-| Sharp            |  `di`    |  `ri`    |  `ma`    |  `fi`    |  `si`    |  `li`    |  `ta`    |
-| 3 Quarter-Sharp  |  `dim`   |  `rim`   |  `mam`   |  `fim`   |  `sim`   |  `lim`   |  `tam`   |
-| Double-Sharp     |  `dai`   |  `rai`   |  `mai`   |  `fai`   |  `sai`   |  `lai`   |  `tai`   |
-| 5 Quarter-Sharp  |  `dain`  |  `rain`  |  `main`  |  `fain`  |  `sain`  |  `lain`  |  `tain`  |
-| Triple-Sharp     |  `dao`   |  `rao`   |  `mao`   |  `fao`   |  `sao`   |  `lao`   |  `tao`   |
-| 7 Quarter-Sharp  |  `daim`  |  `raim`  |  `maim`  |  `faim`  |  `saim`  |  `laim`  |  `taim`  |
-| Quadruple-Sharp  |  `daos`  |  `raos`  |  `maos`  |  `faos`  |  `saos`  |  `laos`  |  `taos`  |
+| Quadruple-Flat   |   daes   |   raes   |   maes   |   faes   |   saes   |   laes   |   taes   |
+| 7 Quarter-Flat   |   dawm   |   rawm   |   mawm   |   fawm   |   sawm   |   lawm   |   tawm   |
+| Triple-Flat      |   dae    |   rae    |   mae    |   fae    |   sae    |   lae    |   tae    |
+| 5 Quarter-Flat   |   dawn   |   rawn   |   mawn   |   fawn   |   sawn   |   lawn   |   tawn   |
+| Double-Flat      |   daw    |   raw    |   maw    |   faw    |   saw    |   law    |   taw    |
+| 3 Quarter-Flat   |   dem    |   ram    |   mem    |   fem    |   sem    |   lem    |   tem    |
+| Flat             |   de     |   ra     |   me     |   fe     |   se     |   le     |   te     |
+| 1 Quarter-Flat   |   dew    |   rew    |   mew    |   few    |   sew    |   lew    |   tew    |
+| Natural          |   do     |   re     |   mi     |   fa     |   sol    |   la     |   ti     |
+| 1 Quarter-Sharp  |   dia    |   ria    |   mia    |   fia    |   sia    |   lia    |   tia    |
+| Sharp            |   di     |   ri     |   ma     |   fi     |   si     |   li     |   ta     |
+| 3 Quarter-Sharp  |   dim    |   rim    |   mam    |   fim    |   sim    |   lim    |   tam    |
+| Double-Sharp     |   dai    |   rai    |   mai    |   fai    |   sai    |   lai    |   tai    |
+| 5 Quarter-Sharp  |   dain   |   rain   |   main   |   fain   |   sain   |   lain   |   tain   |
+| Triple-Sharp     |   dao    |   rao    |   mao    |   fao    |   sao    |   lao    |   tao    |
+| 7 Quarter-Sharp  |   daim   |   raim   |   maim   |   faim   |   saim   |   laim   |   taim   |
+| Quadruple-Sharp  |   daos   |   raos   |   maos   |   faos   |   saos   |   laos   |   taos   |
 
 
 <style>
