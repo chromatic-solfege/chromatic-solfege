@@ -53,17 +53,15 @@ argument as a simple macro language which is called Chromatic-Solfege Abstractio
 Layer Language. See [Chromatic-Solfege Abstraction Layer Language](#chromatic-solfege-abstraction-layer-language) 
 for further information.
 
-- macro
+- `macro`
 	Takes a simple macro program.
-
-- preference
+- `preference`
 	Takes an object to override the current preference. This module takes
 	multilevel preference object system. See below.
-
-- returns
+- `returns`
 	an array that contains transposed note names.
 
-__enharmonize__
+__enharmonize(note)__
 
 This function returns an enharmonized note name of the given note.
 
@@ -84,7 +82,6 @@ backward compatibility and new applications should not use this function.
 
 - note name
 	A note name to convert.
-
 - type
 	Specifies the algorithm of convertion. 
 	This should be one of following strings: 'ds', 's', 'n', 'f', 'df'.
