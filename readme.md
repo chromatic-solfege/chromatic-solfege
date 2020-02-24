@@ -197,7 +197,6 @@ commandInterface( Array.prototype.slice.call( process.argv, 2) );
 ```
 
 # Csall - Chromatic-Solfege Abstraction Layer Language
-## Syntax
 
 As mentioned above, the function `transposeScript()` function accepts an 
 argument as a simple macro language which is called _Csall_. Csall stands 
@@ -252,8 +251,13 @@ passed to the output. It should come after the note name. In case there are any
 octave specifier after the note name, the note value specifiers should come 
 after the octave specifier.
 
+```javascript
+console.log( c.transposeScript( "@do do,4 re,4 mi,2" ) );  // "do,4 re,4 mi2' 
+```
+
 ## Mode Specifiers
-You can put any number of mode specifiers before the all note sequence.
+You can put any number of mode specifiers before the all note sequence. 
+Currently, there are four types of mode specifiers.
 
 - `\har`
 - `\enh`
