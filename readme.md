@@ -28,16 +28,13 @@ __transpose( root : string, intervals: string, is_absolute : boolean ) : string_
 
 This function transposes a single note.
 
-- root
+- `root`
 	Specifies the root note.
-
-- intervals
+- `intervals`
 	Specifies the interval from the root note.
-
-- is_absolute
-TODO
-
-- returns 
+- `is_absolute`
+    TODO
+- `returns`
 	transposed note name as a string value.
 
 ```javascript
