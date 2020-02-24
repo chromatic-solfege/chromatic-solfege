@@ -378,4 +378,9 @@ table is a complete identifier table which includes quater notes.
 | Quadruple-Sharp  |  `daos`  |  `raos`  |  `maos`  |  `faos`  |  `saos`  |  `laos`  |  `taos`  |
 
 
+<style>
+section {
+width : 800px;
+}
+</style>
 
