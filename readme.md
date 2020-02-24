@@ -16,35 +16,8 @@ console.log( r ); // "fi"
 ```
 
 # Methods
-- [transpose](#transpose)
-- [transposeScript](#transposescript)
-- [enharmonize](#enharmonize)
-- [enharmonize2](#enharmonize2)
-- [isQuadrupleSharp](#isquadruplesharp)
-- [isQuadrupleFlat](#isquadrupleflat)
-- [isQuadrupleAccidental](#isquadrupleaccidental)
-- [isTripleSharp](#istriplesharp)
-- [isTripleFlat](#istripleflat)
-- [isTripleAccidental](#istripleaccidental)
-- [isDoubleSharp](#isdoublesharp)
-- [isDoubleFlat](#isdoubleflat)
-- [isDoubleAccidental](#isdoubleaccidental)
-- [isSharp](#issharp)
-- [isFlat](#isflat)
-- [isNatural](#isnatural)
-- [isNote](#isnote)
-- [isAccidental](#isaccidental)
-- [isIrregularAccidental](#isirregularaccidental)
-- [putTripleAccidentals](#puttripleaccidentals)
-- [respell](#respell)
-- [note2number](#note2number)
-- [number2note](#number2note)
-- [note2alphabet](#note2alphabet)
-- [note2alphabet_tex](#note2alphabet_tex)
-- [commandInterface](#commandinterface)
-
-### transpose
-
+## Converters
+### transpose( root : string, intervals: string, is_absolute : boolean ) : string
 `transpose( root : string, intervals: string, is_absolute : boolean ) : string`
 
 This function transposes a single note.
@@ -70,8 +43,7 @@ console.log( chromatic.transpose( "fa", "re" ) ); // "sol"
 console.log( chromatic.transpose( "fa", "mi" ) ); // "la"
 ```
 
-### transposeScript
-
+### transposeScript( macro : string, preference : Object )
 `transposeScript( macro : string, preference : Object )`
 
 This function transposes multiple notes at once. This function accepts an 
@@ -90,7 +62,6 @@ for further information.
 	an array that contains transposed note names.
 
 ### enharmonize
-
 This function returns an enharmonized note name of the given note.
 
 - note
@@ -104,7 +75,6 @@ console.log( c.enharmonize( "de"  ) ); // "ti"
 
 
 ### enharmonize2
-
 This function returns an enharmonic note name of the given note. The note will
 be selected by an internally defined priority. This function is left for
 backward compatibility and new applications should not use this function.
@@ -115,6 +85,51 @@ backward compatibility and new applications should not use this function.
 - type
 	Specifies the algorithm of convertion. 
 	This should be one of following strings: 'ds', 's', 'n', 'f', 'df'.
+
+### putTripleAccidentals
+This is a lilypond helper function. This function puts a triple accidental tag
+before the note name if the specified is with a triple accidental.
+
+### respell
+This function converts note names with flat into sharp and vice a versa.
+
+### note2number
+Returns an integer value which denotes a specific note. We call the integer
+numbers as note index. The note indices start from zero. And the number will
+increase one with every half note.
+
+```javascript
+console.log( c.note2number( "do" ) ); // 0
+console.log( c.note2number( "re" ) ); // 2
+console.log( c.note2number( "do'" ) ); // 12
+console.log( c.note2number( "do," ) ); // -12
+```
+
+
+### number2note
+Returns a note name of the specified note index.
+
+```javascript
+console.log( c.number2note( 12 ) );  // do'
+console.log( c.number2note( -12 ) ); // do,
+```
+
+### note2alphabet
+Returns an alphabetical note name of the specified note name as unicode string.
+
+```javascript
+console.log( c.note2alphabet( 'rai' ) ); // d𝄫
+console.log( c.note2alphabet( 'di' ) );  // c♯
+```
+
+### note2alphabet_tex
+Returns an alphabetical note name of the specified note name as tex command
+string.
+
+```javascript
+console.log( c.note2alphabet_tex( 'rai' ) ); // "d \flatflat"
+console.log( c.note2alphabet_tex( 'di' ) );  // "c \sharp"
+```
 
 ### Predicates
 
@@ -163,62 +178,17 @@ Returns true if the specified value is a note name.
 **isIrregularAccidental**
 Returns true if the specified value is one of 'de', 'ta' , 'ma', 'fe'.
 
-### putTripleAccidentals
-This is a lilypond helper function. This function puts a triple accidental tag
-before the note name if the specified is with a triple accidental.
+## Command Interface
 
-### respell
-This function converts note names with flat into sharp and vice a versa.
-
-### note2number
-Returns an integer value which denotes a specific note. We call the integer
-numbers as note index. The note indices start from zero. And the number will
-increase one with every half note.
-
-```javascript
-console.log( c.note2number( "do" ) ); // 0
-console.log( c.note2number( "re" ) ); // 2
-console.log( c.note2number( "do'" ) ); // 12
-console.log( c.note2number( "do," ) ); // -12
-```
-
-
-### number2note
-Returns a note name of the specified note index.
-
-```javascript
-console.log( c.number2note( 12 ) );  // do'
-console.log( c.number2note( -12 ) ); // do,
-```
-
-### note2alphabet
-Returns an alphabetical note name of the specified note name as unicode string.
-
-```javascript
-console.log( c.note2alphabet( 'rai' ) ); // d𝄫
-console.log( c.note2alphabet( 'di' ) );  // c♯
-```
-
-### note2alphabet_tex
-Returns an alphabetical note name of the specified note name as tex command
-string.
-
-```javascript
-console.log( c.note2alphabet_tex( 'rai' ) ); // "d \flatflat"
-console.log( c.note2alphabet_tex( 'di' ) );  // "c \sharp"
-```
-
-
-## commandInterface
+### commandInterface
 This function implements a simple commandline interface.
 
 ```javascript
 commandInterface( Array.prototype.slice.call( process.argv, 2) );
 ```
 
-# Chromatic-Solfege Abstraction Layer Language
-
-## Syntax of _Csall_ 
+# Csall - Chromatic-Solfege Abstraction Layer Language
+## Syntax
 
 As mentioned above, the function `transposeScript()` function accepts an 
 argument as a simple macro language which is called _Csall_. Csall stands 
@@ -231,7 +201,7 @@ tags.
 Note that the format of its output data is designed to be sent to lilypond 
 afterwards in mind.
 
-## Basic of Csall
+## Basic 
 
 - A sequence of note specifiers are separated by one or more space characters.  
 - The first note specifier is treated as a key specifier.  
@@ -272,7 +242,6 @@ Any of `0 1 2 3 4 5 6 7 8 9 0` are note value specifiers. It is transparently
 passed to the output. It should come after the note name. In case there are any 
 octave specifier after the note name, the note value specifiers should come 
 after the octave specifier.
-
 
 ## Mode Specifiers
 You can put any number of mode specifiers before the all note sequence.
@@ -329,7 +298,6 @@ directive until it is properly fixed._
 
 
 ## Special Note Specifiers
-
 ### The Rest Note Specifier
 
 `s` is used as a rest note. In this module, it is treated as a special note.
@@ -339,7 +307,6 @@ console.log( c.transposeScript( "@do do4 re8 mi8 s4" ) );  // "do4 re8 mi8 s4"
 ```
 
 ### Transparent Note Specifiers
-
 - A note specifier which starts with either `#` `\\` is ignored and 
   transparently sent to the output.
 
@@ -366,8 +333,7 @@ console.log( c.transposeScript( 'do do [ re mi ] { sol la }' ) ); // 'do [ re mi
 These characters are used to pass command sequences to Lilypond after the processing.
 
 
-## Chromatic-Solfege Note Name Identifier Specification
-
+# Chromatic-Solfege Note Name Identifier Specification
 The available note name specifiers are following :
 
 | Origin           |    do    |    re    |    mi    |    fa    |    sol   |    la    |    ti    |
@@ -405,12 +371,6 @@ table is a complete identifier table which includes quater notes.
 | Triple-Sharp     |  `dao`   |  `rao`   |  `mao`   |  `fao`   |  `sao`   |  `lao`   |  `tao`   |
 | 7 Quarter-Sharp  |  `daim`  |  `raim`  |  `maim`  |  `faim`  |  `saim`  |  `laim`  |  `taim`  |
 | Quadruple-Sharp  |  `daos`  |  `raos`  |  `maos`  |  `faos`  |  `saos`  |  `laos`  |  `taos`  |
-
-
-
-
-
-
 
 
 
