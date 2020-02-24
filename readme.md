@@ -25,7 +25,6 @@ following:
 # Methods
 ## Converters
 __transpose( root : string, intervals: string, is_absolute : boolean ) : string__
-`transpose( root : string, intervals: string, is_absolute : boolean ) : string`
 
 This function transposes a single note.
 
@@ -51,7 +50,6 @@ console.log( chromatic.transpose( "fa", "mi" ) ); // "la"
 ```
 
 __transposeScript( macro : string, preference : Object )__
-`transposeScript( macro : string, preference : Object )`
 
 This function transposes multiple notes at once. This function accepts an 
 argument as a simple macro language which is called Chromatic-Solfege Abstraction 
@@ -69,6 +67,7 @@ for further information.
 	an array that contains transposed note names.
 
 __enharmonize__
+
 This function returns an enharmonized note name of the given note.
 
 - note
@@ -81,6 +80,7 @@ console.log( c.enharmonize( "de"  ) ); // "ti"
 ```
 
 __enharmonize2__
+
 This function returns an enharmonic note name of the given note. The note will
 be selected by an internally defined priority. This function is left for
 backward compatibility and new applications should not use this function.
@@ -92,17 +92,24 @@ backward compatibility and new applications should not use this function.
 	Specifies the algorithm of convertion. 
 	This should be one of following strings: 'ds', 's', 'n', 'f', 'df'.
 
+
 __putTripleAccidentals__
+
 This is a lilypond helper function. This function puts a triple accidental tag
 before the note name if the specified is with a triple accidental.
 
+
 __respell__
+
 This function converts note names with flat into sharp and vice a versa.
 
+
 __note2number__
+
 Returns an integer value which denotes a specific note. We call the integer
 numbers as note index. The note indices start from zero. And the number will
 increase one with every half note.
+
 
 ```javascript
 console.log( c.note2number( "do" ) ); // 0
@@ -112,7 +119,9 @@ console.log( c.note2number( "do," ) ); // -12
 ```
 
 __number2note__
+
 Returns a note name of the specified note index.
+
 
 ```javascript
 console.log( c.number2note( 12 ) );  // do'
@@ -120,6 +129,7 @@ console.log( c.number2note( -12 ) ); // do,
 ```
 
 __note2alphabet__
+
 Returns an alphabetical note name of the specified note name as unicode string.
 
 ```javascript
@@ -128,6 +138,7 @@ console.log( c.note2alphabet( 'di' ) );  // c♯
 ```
 
 __note2alphabet_tex__
+
 Returns an alphabetical note name of the specified note name as tex command
 string.
 
@@ -137,7 +148,6 @@ console.log( c.note2alphabet_tex( 'di' ) );  // "c \sharp"
 ```
 
 ### Predicates
-
 __isQuadrupleSharp__
 Returns true if the specified value is a quadruple sharp.
 
